@@ -1,5 +1,3 @@
-# backend/urls.py
-
 from django.contrib import admin
 from django.urls import path, include
 from django.http import HttpResponse
@@ -7,13 +5,12 @@ from django.http import HttpResponse
 def home_view(request):
     return HttpResponse("Welcome to the homepage!")
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/auth/', include('accounts.urls')),  # Example inclusion of another app's URLs
-    path('api/', include('departments.urls')),
-    path('api/', include('machines.urls')),
-     path('api/', include('notifications.urls')),
-    path('', home_view),
-    path('api/', include('jobs.urls')), # Example inclusion of another app's
+    path('api/auth/', include('accounts.urls')),  # Authentication-related URLs
+    path('api/departments/', include('departments.urls')),  # Department-related URLs
+    path('api/machines/', include('machines.urls')),  # Machines-related URLs
+    path('api/notifications/', include('notifications.urls')),  # Notifications-related URLs
+    path('api/jobs/', include('jobs.urls')),  # Jobs-related URLs
+    path('', home_view),  # Homepage
 ]
