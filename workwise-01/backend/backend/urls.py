@@ -13,4 +13,5 @@ urlpatterns = [
     path('api/auth/', include('accounts.urls')),  # Example inclusion of another app's URLs
     path('api/', include('departments.urls')),
     path('', home_view),
+    path('jobs/', include('jobs.urls')), # Example inclusion of another app's
 ]
