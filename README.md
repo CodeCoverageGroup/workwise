@@ -4,14 +4,14 @@ WorkWise
 An Employee and Machine Management System to streamline communication across shifts, manage machine maintenance, and schedule jobs based on shipping dates.
 
 ## Table of Contents
-- [Project Overview](#project-overview)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
-- [API Documentation](#api-documentation)
-- [Contributing](#contributing)
-- [License](#license)
+- [Project Title](#project-title)
+  - [Table of Contents](#table-of-contents)
+  - [Project Overview](#project-overview)
+  - [Features](#features)
+  - [Technologies Used](#technologies-used)
+  - [Installation](#installation)
+    - [Prerequisites](#prerequisites)
+    - [How to run the server (for Mac)](#how-to-run-the-server-for-mac)
 
 ## Project Overview
 
@@ -42,3 +42,20 @@ Make sure you have the following installed on your machine:
 - [Python 3.x](https://www.python.org/downloads/)
 - [PostgreSQL](https://www.postgresql.org/download/)
 - [Git](https://git-scm.com/)
+
+
+### How to run the server (for Mac)
+Install the virtual environment
+`python -m venv env`
+
+Active the virtual environment
+`source workwise-01/venv/bin/activate`
+
+Install dependencies (from the backend folder)
+`pip install -r requirements.txt`
+
+Then run the server
+`python manage.py runserver`
+
+You can confirm it on a web browser with the url, 
+http://127.0.0.1:8000
