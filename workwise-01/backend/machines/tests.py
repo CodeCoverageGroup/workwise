@@ -7,38 +7,45 @@ from django.contrib.auth.models import User
 from .models import Machine, MaintenanceTicket
 
 class MachineAPITestCase(APITestCase):
+    """
+    Test cases for Machine model API endpoints, focusing on CRUD operations
+    and checking access with and without authentication.
+    """
 
     def setUp(self):
-        # Create a user and generate a JWT token
+        """
+        Set up test user and machine instances, and generate a JWT token
+        for authenticated API requests.
+        """
         self.user = User.objects.create_user(username='testuser', password='password123')
         refresh = RefreshToken.for_user(self.user)
         self.access_token = str(refresh.access_token)
 
-        # Create a machine for testing
+
         self.machine = Machine.objects.create(
             name='Machine 1',
             model_number='M123',
             location='Warehouse 1',
             status='operational'
         )
-    
+
     def authenticate(self):
         """Helper method to authenticate requests using the JWT token."""
         self.client.credentials(HTTP_AUTHORIZATION=f'Bearer {self.access_token}')
 
     def test_machine_list_authenticated(self):
-        """Test retrieving machine list when authenticated."""
+        """Test retrieving the list of machines with authentication."""
         self.authenticate()
         response = self.client.get(reverse('machine-list'))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_machine_list_unauthenticated(self):
-        """Test retrieving machine list without authentication."""
+        """Test retrieving the list of machines without authentication."""
         response = self.client.get(reverse('machine-list'))
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
     def test_create_machine_authenticated(self):
-        """Test creating a machine when authenticated."""
+        """Test creating a machine with authentication."""
         self.authenticate()
         data = {
             'name': 'Machine 2',
@@ -61,7 +68,7 @@ class MachineAPITestCase(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
     def test_update_machine_authenticated(self):
-        """Test updating a machine when authenticated."""
+        """Test updating a machine with authentication."""
         self.authenticate()
         data = {
             'name': 'Updated Machine',
@@ -86,14 +93,20 @@ class MachineAPITestCase(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
 class MaintenanceTicketAPITestCase(APITestCase):
+    """
+    Test cases for MaintenanceTicket model API endpoints, focusing on CRUD operations
+    and checking access with and without authentication.
+    """
 
     def setUp(self):
-        # Create a user and generate a JWT token
+        """
+        Set up test user, machine, and maintenance ticket instances, and
+        generate a JWT token for authenticated API requests.
+        """
         self.user = User.objects.create_user(username='testuser', password='password123')
         refresh = RefreshToken.for_user(self.user)
         self.access_token = str(refresh.access_token)
 
-        # Create a machine and ticket for testing
         self.machine = Machine.objects.create(
             name='Machine 1',
             model_number='M123',
@@ -106,24 +119,24 @@ class MaintenanceTicketAPITestCase(APITestCase):
             reported_by=self.user,
             status='open'
         )
-    
+
     def authenticate(self):
         """Helper method to authenticate requests using the JWT token."""
         self.client.credentials(HTTP_AUTHORIZATION=f'Bearer {self.access_token}')
 
     def test_ticket_list_authenticated(self):
-        """Test retrieving ticket list when authenticated."""
+        """Test retrieving the list of maintenance tickets with authentication."""
         self.authenticate()
         response = self.client.get(reverse('maintenanceticket-list'))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_ticket_list_unauthenticated(self):
-        """Test retrieving ticket list without authentication."""
+        """Test retrieving the list of maintenance tickets without authentication."""
         response = self.client.get(reverse('maintenanceticket-list'))
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
     def test_create_ticket_authenticated(self):
-        """Test creating a maintenance ticket when authenticated."""
+        """Test creating a maintenance ticket with authentication."""
         self.authenticate()
         data = {
             'machine': self.machine.id,
@@ -146,7 +159,7 @@ class MaintenanceTicketAPITestCase(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
     def test_update_ticket_authenticated(self):
-        """Test updating a maintenance ticket when authenticated."""
+        """Test updating a maintenance ticket with authentication."""
         self.authenticate()
         data = {
             'machine': self.machine.id,

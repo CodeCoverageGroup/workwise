@@ -11,7 +11,19 @@ from rest_framework.serializers import ModelSerializer
 
 # User Serializer
 class UserSerializer(ModelSerializer):
+    """Serializer for the User model, providing basic fields for user information."""
+
     class Meta:
+        """
+        Meta options for the UserSerializer.
+        Specifies the model to be serialized (`User`) and the fields that should
+        be included in the serialized output. These fields are:
+        - `id`: The unique identifier for the user.
+        - `username`: The user's username.
+        - `email`: The user's email address.
+        - `first_name`: The user's first name.
+        - `last_name`: The user's last name.
+        """
         model = User
         fields = ['id', 'username', 'email', 'first_name', 'last_name']
 
