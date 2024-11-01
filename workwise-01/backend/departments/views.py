@@ -8,10 +8,23 @@ from .serializers import DepartmentSerializer
 
 class DepartmentViewSet(viewsets.ModelViewSet):
     """
+<<<<<<< HEAD
     A viewset for viewing and editing department instances.
     """
+=======
+    ViewSet for managing Department instances.
+
+    This ViewSet provides CRUD operations for the Department model,
+    allowing authenticated users with JWT-based authentication to
+    create, retrieve, update, and delete department records.
+    """
+
+>>>>>>> 0dbbe20fcf2442d4eb4d9e7c71f59814c192c753
     queryset = Department.objects.all()
+    """Defines the base queryset for retrieving Department records."""
+
     serializer_class = DepartmentSerializer
+<<<<<<< HEAD
     permission_classes = [permissions.IsAuthenticated]
 
     def create(self, request, *args, **kwargs):
@@ -31,3 +44,13 @@ class DepartmentViewSet(viewsets.ModelViewSet):
         instance = self.get_object()
         self.perform_destroy(instance)
         return Response(status=status.HTTP_204_NO_CONTENT)
+=======
+    """Specifies the serializer used to validate and serialize Department data."""
+
+    authentication_classes = [JWTAuthentication]
+    """Enforces JWT authentication for accessing this ViewSet."""
+
+    permission_classes = [IsAuthenticated]
+    """Restricts access to authenticated users only."""
+    
+>>>>>>> 0dbbe20fcf2442d4eb4d9e7c71f59814c192c753

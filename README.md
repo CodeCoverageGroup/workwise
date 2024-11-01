@@ -11,7 +11,7 @@ An Employee and Machine Management System to streamline communication across shi
   - [Technologies Used](#technologies-used)
   - [Installation](#installation)
     - [Prerequisites](#prerequisites)
-    - [How to run the server (for Mac)](#how-to-run-the-server-for-mac)
+  - [How to run the server (cd workwise-01)](#how-to-run-the-server-cd-workwise-01)
 
 ## Project Overview
 
@@ -43,19 +43,11 @@ Make sure you have the following installed on your machine:
 - [PostgreSQL](https://www.postgresql.org/download/)
 - [Git](https://git-scm.com/)
 
-
-### How to run the server (for Mac)
-Install the virtual environment
-`python -m venv env`
-
-Active the virtual environment
-`source workwise-01/venv/bin/activate`
-
-Install dependencies (from the backend folder)
-`pip install -r requirements.txt`
-
-Then run the server
-`python manage.py runserver`
-
-You can confirm it on a web browser with the url, 
-http://127.0.0.1:8000
+## How to run the server (cd workwise-01)
+- **Install the virtual env**: python -m venv venv
+- **Active the virtual environment**: source venv/bin/activate
+- **Install Django**: pip install Django
+- **Install dependencies**: pip intsll -r requirements.txt
+- **Then run the server**: python manage.py runserver
+- You can confirm it on a web browser with the url, http://127.0.0.1:8000
+- **Run test**: python manage.py test
