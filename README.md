@@ -51,3 +51,4 @@ Make sure you have the following installed on your machine:
 - **Then run the server**: python manage.py runserver
 - You can confirm it on a web browser with the url, http://127.0.0.1:8000
 - **Run test**: python manage.py test
+- new things
