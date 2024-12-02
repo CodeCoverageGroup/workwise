@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
@@ -23,7 +23,7 @@ function SignUp() {
 
    // On load if user is already logged in, redirect to dashboard
    useEffect(() => {
-    if (localStorage.getItem('authToken')) {
+    if (localStorage.getItem('accesToken')) {
       window.location.href = '/dashboard';
     }
   }, []);

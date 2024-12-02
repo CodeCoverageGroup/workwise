@@ -7,8 +7,8 @@ describe('Sign In', () => {
 
   it('should sign in and redirect to the dashboard', () => {
     // Enter email and password
-    cy.get('input[type="text"]').type('your_username');
-    cy.get('input[type="password"]').type('your_password');
+    cy.get('input[type="text"]').type('gunsu');
+    cy.get('input[type="password"]').type('asd123');
 
     // Submit the form
     cy.get('form').submit();
@@ -96,8 +96,8 @@ describe('Machines Management', () => {
   beforeEach(() => {
     // Visit the sign-in page and log in
     cy.visit('localhost:3000/authentication/sign-in');
-    cy.get('input[type="text"]').type('your_username');
-    cy.get('input[type="password"]').type('your_password');
+    cy.get('input[type="text"]').type('gunsu');
+    cy.get('input[type="password"]').type('asd123');
     cy.get('form').submit();
     cy.wait(3000); // Wait for the dashboard to load
     // Navigate to the machines page
