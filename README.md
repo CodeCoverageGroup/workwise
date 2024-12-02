@@ -119,71 +119,71 @@ Workwise integrates the following core functionalities:
 
 ### **Authentication**
 
-- **`POST /api/auth/token/`** - Obtain a JWT token.
-- **`POST /api/auth/token/refresh/**` - Refresh an expired JWT token.
-- **`POST /api/auth/register/**` - Register a new user.
+- `POST /api/auth/token/` - Obtain a JWT token.
+- `POST /api/auth/token/refresh/` - Refresh an expired JWT token.
+- `POST /api/auth/register/` - Register a new user.
 
 ---
 
 ### **User Management**
 
-- **`GET /api/auth/users/**` - Retrieve a list of all users.
-- **`GET /api/auth/users/<id>/**` - Retrieve details of a specific user.
-- **`PATCH /api/auth/users/<id>/`** - Update specific details of a user.
-- **`DELETE /api/auth/users/<id>/`** - Delete a specific user.
+- `GET /api/auth/users/` - Retrieve a list of all users.
+- `GET /api/auth/users/<id>/` - Retrieve details of a specific user.
+- `PATCH /api/auth/users/<id>/` - Update specific details of a user.
+- `DELETE /api/auth/users/<id>/` - Delete a specific user.
 
 ---
 
 ### **Department Management**
 
-- **`GET /api/departments/departments/`** - Retrieve a list of all departments.
-- **`POST /api/departments/departments/`** - Create a new department.
-- **`GET /api/departments/departments/<id>/`** - Retrieve details of a specific department.
-- **`PATCH /api/departments/departments/<id>/**` - Update a specific department.
-- **`DELETE /api/departments/departments/<id>/`** - Soft delete a department.
-- **`GET /api/departments/departments/count/**` - Retrieve the total count of departments.
+- `GET /api/departments/departments/` - Retrieve a list of all departments.
+- `POST /api/departments/departments/` - Create a new department.
+- `GET /api/departments/departments/<id>/` - Retrieve details of a specific department.
+- `PATCH /api/departments/departments/<id>/` - Update a specific department.
+- `DELETE /api/departments/departments/<id>/` - Soft delete a department.
+- `GET /api/departments/departments/count/` - Retrieve the total count of departments.
 
 ---
 
 ### **Job Management**
 
-- **`GET /api/jobs/jobs/**` - Retrieve a list of all jobs.
-- **`GET /api/jobs/jobs/<id>/**` - Retrieve details of a specific job.
+- `GET /api/jobs/jobs/` - Retrieve a list of all jobs.
+- `GET /api/jobs/jobs/<id>/` - Retrieve details of a specific job.
 
 ---
 
 ### **Machine Management**
 
-- **`GET /api/machines/machines/`** - Retrieve a list of all machines.
-- **`POST /api/machines/machines/**` - Add a new machine.
-- **`GET /api/machines/machines/<id>/`** - Retrieve details of a specific machine.
-- **`PATCH /api/machines/machines/<id>/`** - Update machine details.
-- **`DELETE /api/machines/machines/<id>/**` - Remove a machine.
-- **`GET /api/machines/machines/maintenance_due/`** - List machines with upcoming maintenance needs.
+- `GET /api/machines/machines/` - Retrieve a list of all machines.
+- `POST /api/machines/machines/` - Add a new machine.
+- `GET /api/machines/machines/<id>/` - Retrieve details of a specific machine.
+- `PATCH /api/machines/machines/<id>/` - Update machine details.
+- `DELETE /api/machines/machines/<id>/` - Remove a machine.
+- `GET /api/machines/machines/maintenance_due/`** - List machines with upcoming maintenance needs.
 
 ---
 
 ### **Maintenance Tickets**
 
-- **`GET /api/machines/tickets/`** - Retrieve a list of all maintenance tickets.
-- **`POST /api/machines/tickets/`** - Create a new maintenance ticket.
-- **`GET /api/machines/tickets/open_tickets/`** - Retrieve a list of open tickets.
+- `GET /api/machines/tickets/` - Retrieve a list of all maintenance tickets.
+- `POST /api/machines/tickets/` - Create a new maintenance ticket.
+- `GET /api/machines/tickets/open_tickets/` - Retrieve a list of open tickets.
 
 ---
 
 ### **Notifications**
 
-- **`GET /api/notifications/notifications/**` - Retrieve a list of all notifications.
-- **`PATCH /api/notifications/notifications/<id>/mark-read/**` - Mark a notification as read.
-- **`PATCH /api/notifications/notifications/<id>/mark-unread/**` - Mark a notification as unread.
-- **`DELETE /api/notifications/notifications/delete-all/**` - Delete all notifications.
+- `GET /api/notifications/notifications/` - Retrieve a list of all notifications.
+- `PATCH /api/notifications/notifications/<id>/mark-read/` - Mark a notification as read.
+- `PATCH /api/notifications/notifications/<id>/mark-unread/` - Mark a notification as unread.
+- `DELETE /api/notifications/notifications/delete-all/` - Delete all notifications.
 
 ---
 
 ### **Admin Panel**
 
-- **`GET /admin/**` - Access the Django admin interface.
-- **`GET /admin/<app_name>/<model_name>/**` - Access a specific model's data.
+- `GET /admin/` - Access the Django admin interface.
+- `GET /admin/<app_name>/<model_name>/` - Access a specific model's data.
 
 ---
 
